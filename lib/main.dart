@@ -4,8 +4,7 @@ import './widgets/transaction_list.dart';
 import 'models/transaction.dart';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
+ 
 void main(List<String> args) {
   runApp(const MyApp());
 }
