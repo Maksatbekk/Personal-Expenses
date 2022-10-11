@@ -17,15 +17,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Personal Expenses",
       theme: ThemeData(
-          primarySwatch: Colors.lightBlue,
-          accentColor: Colors.cyan,
           errorColor: Colors.red,
           fontFamily: 'Quicksand',
           appBarTheme: const AppBarTheme(
               titleTextStyle: TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 22,
-          ))),
+          )),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.lightBlue)
+              .copyWith(secondary: Colors.cyan)),
       home: const MyHomePage(),
     );
   }
