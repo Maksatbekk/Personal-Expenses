@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
+import 'transaction_item.dart';
 
 class TransactionList extends StatelessWidget {
   const TransactionList(this.transactions, this.delete, {super.key});
@@ -32,39 +32,10 @@ class TransactionList extends StatelessWidget {
           })
         : ListView.builder(
             itemBuilder: (ctx, index) {
-              return Card(
-                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                      padding: const EdgeInsets.all(6),
-                      child: FittedBox(
-                        child: Text('\$${transactions[index].amount}'),
-                      ),
-                    ),
-                  ),
-                  title: Text(
-                    transactions[index].title,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  subtitle:
-                      Text(DateFormat.yMMMd().format(transactions[index].date)),
-                  trailing: MediaQuery.of(context).size.width > 360 ? 
-                  TextButton.icon(
-                    icon: const Icon(Icons.delete,), 
-                    label: const Text("Delete"), 
-                    style: TextButton.styleFrom(foregroundColor: Theme.of(context).errorColor),
-                    onPressed: () => delete(transactions[index].id),)
-                    : IconButton(
-                    icon: Icon(
-                      Icons.delete,
-                      color: Theme.of(context).errorColor,
-                    ),
-                    onPressed: () => delete(transactions[index].id),
-                  ),
-                ),
-              );
+              return TransationItem(
+                  transaction: transactions[index], 
+                  delete: delete
+                );
             },
             itemCount: transactions.length,
           );
