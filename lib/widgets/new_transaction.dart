@@ -89,9 +89,6 @@ class _NewTransactionState extends State<NewTransaction> {
                 decoration: const InputDecoration(labelText: 'Title'),
                 controller: _titleController,
                 onSubmitted: (_) => _submitData(),
-                //onChanged: (val) {
-                //titleInput = val;
-                //},
               ),
               TextField(
                 decoration: const InputDecoration(labelText: 'Amount'),
